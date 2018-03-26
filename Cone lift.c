@@ -61,34 +61,8 @@ void pre_auton()
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
-void coneLift(int conesStacked){
-	int error;
-	int prevError=0;
-	int integral=0;
-	int derivative;
-	int power;
-	int ticksPerCone;
-	int heightConstant;
-	int ticks=conesStacked*ticksPerCone+heightConstant;
-	while(getMotorEncoder(clift)<ticks){
-		error=ticks-getMotorEncoder(clift);
-		integral=integral+error;
-		if(error==0||(getMotorEncoder(clift)>ticks)){
-			integral=0;
-		}
-		if(error>1000){
-			integral=0;
-		}
-		derivative=error-prevError;
-		prevError=error;
-		power=error*kP+integral*kI+derivative*kD;
-		motor[clift]=power;
-		wait1Msec(15);
-	}
-	motor[clift]=0;
-	counter=0;
-}
-float moveArm (int conesStacc)
+
+float coneLift (int conesStacc)
 { int error;
 	int prevError=0;
 	int integral=0;
@@ -132,6 +106,7 @@ task autonomous()
 
   // Remove this function call once you have "real" code.
   AutonomousCodePlaceholderForTesting();
+	coneLift();
 }
 
 /*---------------------------------------------------------------------------*/
