@@ -104,7 +104,7 @@ float moveArm (int conesStacc)
 			counter+= counter;
 			conesStacc = counter;
 			ticks = conesStacc*ticksPerCone+heightConstant;
-			return(ticks);} /* idk weither to return conesStacc or ticks ...........FOCUS ON THAT */
+			return(ticks);} 
 			while(getMotorEncoder(clift2)<ticks){
 			error=ticks-getMotorEncoder(clift2);
 		integral=integral+error;
