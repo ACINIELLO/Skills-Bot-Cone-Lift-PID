@@ -33,7 +33,7 @@ const float kP=1;
 const float kI=1;
 const float kD=1;
 int counter=0;
-int conesStacked=0;
+int conesStacc=0;
 
 void pre_auton()
 {
@@ -61,8 +61,7 @@ void pre_auton()
 /*  You must modify the code to add your own robot specific commands here.   */
 /*---------------------------------------------------------------------------*/
 
-
-float coneLift (int conesStacc)
+float moveArm (int conesStacc)
 { int error;
 	int prevError=0;
 	int integral=0;
@@ -79,8 +78,8 @@ float coneLift (int conesStacc)
 			conesStacc = counter;
 			ticks = conesStacc*ticksPerCone+heightConstant;
 			return(ticks);} 
-			while(getMotorEncoder(clift2)<ticks){
-			error=ticks-getMotorEncoder(clift2);
+			while(getMotorEncoder(clift)<ticks){
+			error=ticks-getMotorEncoder(clift);
 		integral=integral+error;
 		if(error==0||(getMotorEncoder(clift2)>ticks)){
 			integral=0;
@@ -91,10 +90,10 @@ float coneLift (int conesStacc)
 		derivative=error-prevError;
 		prevError=error;
 		power=error*kP+integral*kI+derivative*kD;
-		motor[clift2]=power;
+		motor[clift]=power;
 		wait1Msec(15);
 	}
-	motor[clift2]=0;
+	motor[clift]=0;
 	counter=0;
 return(0); }
 
@@ -106,7 +105,7 @@ task autonomous()
 
   // Remove this function call once you have "real" code.
   AutonomousCodePlaceholderForTesting();
-	coneLift();
+  moveArm(conesStacc);
 }
 
 /*---------------------------------------------------------------------------*/
