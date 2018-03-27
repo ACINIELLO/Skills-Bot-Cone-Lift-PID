@@ -57,7 +57,7 @@ float derivative;
 float integral = 0;
 float integral_active_zone = 4*ticks_per_inch; //FIX idk man arbitrary
 float errorThreshold = 30; //errorThresholdInTicks=(ticks_per_inch)*(errorThresholdInInches) arbitrary
-const int heightBetwCones; /* CALCULATE in ticks*/
+const int heightBetwCones = 100; /* CALCULATE and TEST (value inputted rn is a placeholder) in ticks*/
 #pragma platform(VEX2)
 #pragma competitionControl(Competition)
 #include "Vex_Competition_Includes.c"
