@@ -159,15 +159,15 @@ float coneLift (int conesStacc)  ///////* I got to fix the theory behind this wi
 	int derivative;
 	int power;
 	int ticksPerCone;
-	int heightConstant;
+	int heightBetwCones;
 	int i;
-	int ticks=conesStacc*ticksPerCone+heightConstant;
+	int ticks=conesStacc*ticksPerCone+heightBetwCones;
 	 for (i=0;i>=10;i++)/* assuming 10 cones*/
 
 		{int ticks=0;
 			counter+= counter;
 			conesStacc = counter;
-			ticks = conesStacc*ticksPerCone+heightConstant;
+			ticks = conesStacc*ticksPerCone+heightBetwCones;
 			return(ticks);}
 			while(getMotorEncoder(clift)<ticks){
 			error=ticks-getMotorEncoder(clift);
