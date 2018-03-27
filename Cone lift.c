@@ -198,9 +198,9 @@ void moveArm( int ticks) /* tune by testing encoder values for 90 deg and 0 deg 
 	int heightConstant;
 	int i;
 	const int Power = 100; 
-	if ( ticks = 0 )/* 0 is in deg not in the wanting ticks */
+	if ( ticks = 0 )/* 0 is in deg not in the wanting ticks ==> TEST*/
 coneLift(conesStacc);
-	if ( ticks != 90)/*90 is in terms of deg not ticks IT must be in ticks however */
+	if ( ticks != 90)/*90 is in terms of deg not ticks IT must be in ticks however==> TEST */
 		motor[Arm] = 100;/*counterClockwise direction */
 else 
 	motor[Arm] = 0;
