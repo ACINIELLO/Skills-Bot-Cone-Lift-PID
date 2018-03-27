@@ -57,7 +57,7 @@ float derivative;
 float integral = 0;
 float integral_active_zone = 4*ticks_per_inch; //FIX idk man arbitrary
 float errorThreshold = 30; //errorThresholdInTicks=(ticks_per_inch)*(errorThresholdInInches) arbitrary
-
+const int heightBetwCones; /* CALCULATE in ticks*/
 #pragma platform(VEX2)
 #pragma competitionControl(Competition)
 #include "Vex_Competition_Includes.c"
@@ -160,7 +160,6 @@ float coneLift (int conesStacc)  ///////* I got to fix the theory behind this wi
 	int derivative;
 	int power;
 	int ticksPerCone;
-	int heightBetwCones;
 	int i;
 	int ticks=conesStacc*ticksPerCone+heightBetwCones;
 	 for (i=0;i>=10;i++)/* assuming 10 cones*/
